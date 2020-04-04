@@ -56,3 +56,11 @@ var xyz = null
 
 console.log(xyz)
 console.log(abc)
+
+
+//hexadecimal & octal number
+
+var hex = 0xff
+console.log(hex)
+var oct = 0635
+console.log(oct)
