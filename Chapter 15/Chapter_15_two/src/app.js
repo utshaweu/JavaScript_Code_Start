@@ -253,63 +253,199 @@ function isIterable(obj){
 
 
 
-//ES6 Class Properties
+// //ES6 Class Properties
 
-class Rectangle{
-  constructor(width,height){
-    this.width = width
-    this.height = height
-    this.another = function(){
+// class Rectangle{
+//   constructor(width,height){
+//     this.width = width
+//     this.height = height
+//     this.another = function(){
 
-    }
-  }
+//     }
+//   }
 
-  name = 'Sajib Mahmud'
+//   name = 'Sajib Mahmud'
 
-  test2 = function(){
+//   test2 = function(){
 
-  }
-  draw(){
-    console.log('Drawing')
-  }
+//   }
+//   draw(){
+//     console.log('Drawing')
+//   }
 
-}
-
-
-let rect1 = new Rectangle(10,30)
-console.log(rect1)
+// }
 
 
-//ES6 Static Method
+// let rect1 = new Rectangle(10,30)
+// console.log(rect1)
 
-class Person{
-  constructor(name,email){
-    this.name = name
-    this.email = email
-  }
 
-  print(){
-    console.log(this.name,this.email)
-  }
+// //ES6 Static Method
 
-  test(){
-    console.log(this)
-  }
+// class Person{
+//   constructor(name,email){
+//     this.name = name
+//     this.email = email
+//   }
 
-  static create(str){
-    let person = JSON.parse(str)
-    return new Person(person.name,person.email)
-  }
+//   print(){
+//     console.log(this.name,this.email)
+//   }
 
-}
+//   test(){
+//     console.log(this)
+//   }
 
-let str = `{"name": "Sajib Mahmud", "email": "utshaw1995@gmail.com"}`
+//   static create(str){
+//     let person = JSON.parse(str)
+//     return new Person(person.name,person.email)
+//   }
 
-let p1 = Person.create(str)
-console.log(p1)
-console.log(p1 instanceof Person)
-p1.print()
+// }
 
-let test = p1.test
+// let str = `{"name": "Sajib Mahmud", "email": "utshaw1995@gmail.com"}`
 
-test()
+// let p1 = Person.create(str)
+// console.log(p1)
+// console.log(p1 instanceof Person)
+// p1.print()
+
+// let test = p1.test
+
+// test()
+
+
+// //Hide Private Data Using Symbol
+
+// const _radius = Symbol()
+// const _name = Symbol()
+// const _draw = Symbol()
+
+// class Circle{
+//   constructor(radius,name){
+//     this[_radius] = radius
+//     this[_name] = name
+//   }
+
+//   [_draw](){
+//     console.log('Drawing')
+//   }
+// }
+
+// let c1 = new Circle(2,'Sajib')
+// console.log(c1)
+
+
+// // Hide Private Data With WeakMap
+
+// const _radius = new WeakMap()
+// const _name = new WeakMap()
+// const _resize = new WeakMap()
+
+// class Circle{
+//   constructor(radius,name){
+//     this.size = 100
+//     _radius.set(this,radius)
+//     _name.set(this,name)
+//     _resize.set(this, () =>{
+//       console.log(this.size)
+//     })
+//   }
+
+//   draw(){
+//     console.log('Drawing')
+//     console.log(_radius.get(this),_name.get(this))
+//     _resize.get(this)()
+//   }
+// }
+
+// let c1 = new Circle(2,'Sajib')
+// console.log(c1)
+// c1.draw()
+
+
+
+// //Getter And Setter in ES6
+
+// const _radius = new WeakMap()
+// const _name = new WeakMap()
+// const _resize = new WeakMap()
+
+// class Circle{
+//   constructor(radius,name){
+//     this.size = 100
+//     _radius.set(this,radius)
+//     _name.set(this,name)
+//     _resize.set(this, () =>{
+//       console.log(this.size)
+//     })
+//   }
+
+//   get radius(){
+//     return _radius.get(this)
+//   }
+
+//   set radius(v){
+//     _radius.set(this,v)
+//   }
+
+//   draw(){
+//     console.log('Drawing')
+//     console.log(_radius.get(this),_name.get(this))
+//     _resize.get(this)()
+//   }
+// }
+
+// let c1 = new Circle(2,'Sajib')
+// console.log(c1)
+// c1.draw()
+
+// c1.radius = 100
+// console.log(c1.radius)
+
+
+
+//Inheritance in ES6
+
+// class Shape{
+//   constructor(color){
+//     this.color = color
+//   }
+//   draw(){
+//     console.log('Drawing...')
+//   }
+// }
+
+// class Rectangle extends Shape{
+//   constructor(color,width,height){
+//     super(color)
+//     this.width = width
+//     this.height = height
+//   }
+//   //Method Overridding
+//   draw(){
+//     console.log('Drawing a Shape...')
+//   }
+//   calculate(){
+//     return this.width * this.height
+//   }
+// }
+
+
+//Modules System Explained
+
+// import Rectangle from './Rectangle'
+
+// let r = new Rectangle('Dark',4,5)
+// console.log(r)
+
+// import * as func from './func'
+
+// console.log(func.add(45,10))
+// console.log(func.sub(45,10))
+
+
+import {add,sub} from './func'
+
+console.log(add(45,10))
+console.log(sub(45,10))
