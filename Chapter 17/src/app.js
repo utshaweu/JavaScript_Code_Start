@@ -2,4 +2,9 @@
 // import './lessons/lesson8'
 
 // import './lessons/lesson9'
-import './lessons/lesson12'
+// import './lessons/lesson12'
+// import  './lessons/lesson13'
+// import './lessons/lesson14'
+// import './lessons/lesson15'
+// import './lessons/lesson16'
+import './lessons/lesson17'
